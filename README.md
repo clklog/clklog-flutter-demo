@@ -1,16 +1,56 @@
-# flutterdemo
+# clk-flutter-demo
 
-A new Flutter project.
+# Flutter 神策分析 SDK 插件集成指南
 
-## Getting Started
+## 引入插件
 
-This project is a starting point for a Flutter application.
+在 Flutter 项目的 `pubspec.yaml` 文件中的 dependencies 部分添加以下依赖：
 
-A few resources to get you started if this is your first Flutter project:
+```yaml
+dependencies:
+  # 添加神策 flutter plugin
+  sensors_analytics_flutter_plugin: ^3.0.1
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+执行以下命令安装插件：
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+```
+
+## 版本依赖关系
+
+Flutter 插件与 Android 和 iOS 对应的 SDK 版本关系如下：
+
+| Flutter 插件版本 | Android SDK 版本范围 | iOS SDK 版本范围 |
+|----------------|-------------------|----------------|
+| v2.3.0 及以上 | v6.6.0 及以上 | v4.5.0 及以上 |
+| v2.2.0 ~ v2.2.2 | v6.5.1 ~ v6.5.5 | v4.4.6 ~ v4.4.8 |
+| v2.1.0 ~ v2.1.1 | v6.0.0 ~ v6.5.0 | v4.0.0 ~ v4.4.5 |
+| v1.0.5 ~ v2.0.4 | v4.4.0 ~ v5.4.7 | v2.1.17 ~ v3.1.9 |
+| v1.0.0 ~ v1.0.4 | SDK 版本 <= v4.3.7 | SDK 版本 <= v2.1.15 |
+
+## 初始化 SDK
+
+从 Flutter 插件 v2.1.0 版本开始支持在 Flutter 端进行初始化。示例代码如下：
+
+```dart
+SensorsAnalyticsFlutterPlugin.init(
+    serverUrl: "<#数据接收地址#>",
+    enableLog: true,
+    visualized: VisualizedConfig(autoTrack: true, properties: true),
+    android: AndroidConfig(maxCacheSize: 32 * 1024 * 1024, jellybean: true, subProcessFlush: true),
+    ios: IOSConfig(maxCacheSize: 10000));
+```
+
+> 注意：通常原生端和 Flutter 端只要初始化一次即可。若选择在 Flutter 端初始化，就不需要再在原生端初始化了。
+
+# ClkLog Flutter 数据采集说明
+
+## 使用须知
+
+在使用 ClkLog 作为 Flutter 应用的数据采集服务时，需要注意以下内容：
+
+1. ClkLog 的统计数据基于会话ID（$event_session_id）。由于 Flutter SDK 的会话未实现，所以需要自己实现会话ID并配置为全局属性。
+
+这样的实现方式可以确保在 Flutter 应用中准确追踪用户的页面访问行为和会话数据。
