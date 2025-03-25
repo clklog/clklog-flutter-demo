@@ -1,0 +1,17 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml:1:1-3:12
+INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml:1:1-3:12
+	package
+		ADDED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml:2:3-68
+		INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml:1:11-69
+uses-sdk
+INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml
+INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/bb/.pub-cache/hosted/pub.dev/sensors_analytics_flutter_plugin-3.0.1/android/src/main/AndroidManifest.xml
