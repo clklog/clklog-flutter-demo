@@ -54,3 +54,48 @@ SensorsAnalyticsFlutterPlugin.init(
 1. ClkLog 的统计数据基于会话ID（$event_session_id）。由于 Flutter SDK 的会话未实现，所以需要自己实现会话ID并配置为全局属性。
 
 这样的实现方式可以确保在 Flutter 应用中准确追踪用户的页面访问行为和会话数据。
+
+# ClkLog Flutter Demo 功能说明
+
+### 1. 会话管理
+```dart
+void initSensors() async {
+    var uuid = Uuid();
+    var map = {
+      "\$event_session_id": uuid.v4()
+    };
+    SensorsAnalyticsFlutterPlugin.registerSuperProperties(map);
+}
+```
+- 生成会话ID
+- 注册为全局属性
+
+### 2. 用户标识管理
+- 获取访客ID（distinctId）
+- 用户登录标识（login）
+- 用户登出（logout）
+- 匿名ID管理（anonymousId）
+
+### 3. 事件追踪
+- 激活事件（trackInstallation）
+- 自定义事件（track）
+- 计时事件（trackTimer相关方法）
+- 页面浏览事件（自动采集）
+
+### 4. 用户属性管理
+- 设置用户属性（profileSet）
+- 设置推送ID（profilePushId）
+- 删除推送ID（profileUnsetPushId）
+
+### 5. 数据发送控制
+- 设置发送策略（setFlushNetworkPolicy）
+- 设置发送间隔（setFlushInterval）
+- 设置发送条数（setFlushBulkSize）
+- 手动发送数据（flush）
+
+### 6. 调试功能
+- 日志开关（enableLog）
+- 网络请求开关（enableNetworkRequest）
+- 数据清除（deleteAll）
+
+这个 Demo 展示了 ClkLog Flutter SDK 的主要功能和使用方法，可以作为集成参考。
