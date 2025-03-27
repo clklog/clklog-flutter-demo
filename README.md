@@ -1,4 +1,4 @@
-# clk-flutter-demo
+# clklog-flutter-demo
 
 # Flutter 神策分析 SDK 插件集成指南
 
@@ -51,7 +51,7 @@ SensorsAnalyticsFlutterPlugin.init(
 
 在使用 ClkLog 作为 Flutter 应用的数据采集服务时，需要注意以下内容：
 
-1. ClkLog 的统计数据基于会话ID（$event_session_id）。由于 Flutter SDK 的会话未实现，所以需要自己实现会话ID并配置为全局属性。
+ClkLog 的统计数据基于会话ID（$event_session_id）。由于 Flutter SDK 的会话未实现，所以需要自己实现会话ID并配置为全局属性。
 
 这样的实现方式可以确保在 Flutter 应用中准确追踪用户的页面访问行为和会话数据。
 
